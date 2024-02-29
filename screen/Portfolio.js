@@ -6,11 +6,11 @@ export default function Portfolio( {navigation} ) {
     <View style={styles.container}>
       <Text style={styles.title}>Portfolio</Text>
       <Button 
-      onPress={()=>navigation.navigate('About')}
+      onPress={()=> navigation.replace('About')}
       title='A propos'/>
 
       <Button onPress={()=>navigation.goBack()} 
-       title='Retour page accueil'
+       title='Retour'
       />
     </View>
   )

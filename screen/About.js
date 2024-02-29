@@ -1,10 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View,Button } from 'react-native'
 import React from 'react'
 
-export default function About() {
+export default function About({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>About</Text>
+      <Button onPress={()=>navigation.goBack()} 
+       title='Retour portfolio'
+      />
     </View>
   )
 }
