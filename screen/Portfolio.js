@@ -1,31 +1,23 @@
 import { Button, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
+import { globalStyles } from '../styles/AppStyle';
 
-export default function Portfolio( {navigation} ) {
+export default function Portfolio( {navigation,route} ) {
+  const name = route.params.name;
+  const country = route.params.country;
+  const totalImg = route.params.totalImg;
+
+ 
+  useLayoutEffect(()=>{
+    navigation.setOptions({
+      title : `Portfolio de ${name}`
+    })
+  },[navigation])
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Portfolio</Text>
-      <Button 
-      onPress={()=> navigation.replace('About')}
-      title='A propos'/>
-
-      <Button onPress={()=>navigation.goBack()} 
-       title='Retour'
-      />
+    <View style={globalStyles.containerPortofio}>
+      <Text style ={globalStyles.titleInfo}>{name}</Text>
+      <Text style ={globalStyles.titleInfo}>{country}</Text>
+      <Text style ={globalStyles.titleInfo}>{totalImg}</Text>
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-    container:{
-        backgroundColor:"yellow",
-        flex : 1,
-        alignItems:'center',
-        justifyContent:'center',
-    },
-    title:{
-        fontSize :25,
-        color:"#FFF",
-        fontWeight:'bold',
-    }
-})
